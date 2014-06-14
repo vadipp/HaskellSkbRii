@@ -8,10 +8,14 @@
 module Main where
 
 fizzBuzz :: Int -> String
-fizzBuzz = undefined
+fizzBuzz n = case (n `mod` 3, n `mod` 5) of
+    (0, 0) -> "FizzBuzz"
+    (0, _) -> "Fizz"
+    (_, 0) -> "Buzz"
+    (_, _) -> show n
 
 main = do
-    let myFizzBuzzes = --put your solution here
+    let myFizzBuzzes = map fizzBuzz [1..100]
 
     fbs <- readFile "FizzBuzzes.txt"    
     if read fbs == myFizzBuzzes
